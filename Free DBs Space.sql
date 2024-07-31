@@ -1,0 +1,47 @@
+USE [InvestX_Logging]
+GO
+
+TRUNCATE TABLE ApiLogItems
+GO
+
+TRUNCATE TABLE GenericLogItems
+GO
+
+TRUNCATE TABLE HttpContextLogItems
+GO
+
+TRUNCATE TABLE TrackableItems
+GO
+
+TRUNCATE TABLE FIXLogItems
+GO
+
+DBCC CHECKIDENT ( 'dbo.FIXLogItems', RESEED, 0)
+GO
+
+TRUNCATE TABLE ITCHLogItems
+GO
+
+DBCC CHECKIDENT ( 'dbo.ITCHLogItems', RESEED, 0)
+GO
+
+TRUNCATE TABLE SerilogLogItems
+GO
+
+DBCC CHECKIDENT ( 'dbo.SerilogLogItems', RESEED, 0)
+GO
+
+TRUNCATE TABLE TradingLogItems
+GO
+
+DBCC CHECKIDENT ( 'dbo.TradingLogItems', RESEED, 0)
+GO
+
+DBCC SHRINKFILE(InvestX_Logging, 0);
+GO
+
+DBCC UPDATEUSAGE (0);
+GO
+
+CHECKPOINT
+GO
